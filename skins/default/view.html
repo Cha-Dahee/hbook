@@ -59,6 +59,16 @@
 <br />
 <table>
 	<tr>
+	   <td>
+<!-- 찜버튼 -->
+<form action="./" method="post" onsubmit="return procFilter(this, order_insert);">
+	<input type="hidden" name="module_srl" value="{$module_srl}" />
+	<input type="hidden" name="ting" value="{$book_info->ting}" />
+	<input type="hidden" name="customer_nick" value="{$logged_info->nick_name}" />
+	<input type="hidden" name="trade_srl" value="{$book_info->trade_srl}" />
+	<span class="btn"><input type="submit" value="찜하기"/></span>
+</form>		
+		</td>
 		<td>
 <!--구매자와 거래상태 정보를 위한 폼양식-->
 <!--@if($book_info->ting)-->
