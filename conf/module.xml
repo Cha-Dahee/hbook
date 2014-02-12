@@ -30,6 +30,7 @@
 		<action name="procHbookContentDelete" type="controller" />
 		<action name="procHbookContentSearch" type="controller" />
 		<action name="procHbookOrderinfo" type="controller" standalone="true" />
+		<action name="procHbookContentWish" type="controller" standalone="true" />
 
 		<action name="dispHbookFirst" type="view" index="true" />
 		<action name="dispHbookContentNew" type="view" />

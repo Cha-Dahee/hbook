@@ -100,6 +100,26 @@ class hbookController extends hbook {
 
 
 		}
+		
+		/**
+		 * @brief BOOK 찜하기
+		 **/
+		function procHbookContentWish() {
+		
+			// request 값을 모두 받음
+			$obj = Context::getRequestVars();
+		
+			// 현재 모듈번호 확인
+			$obj->module_srl = Context::get('module_srl');
+		
+			//trade_srl 확인
+			$trade_srl = Context::get('trade_srl');
+			
+			//찜하기 쿼리 실행
+			$output = executeQuery("hbook.insertWishlist", $obj);
+			$this->setMessage('success_registed');
+		}
+	
 
 }
 ?>

@@ -1,7 +1,7 @@
 <!--#include("_header.html")-->
 
 <script type="text/javascript">
-function Popup(nwurl){
+function Popup(){
 	var width = 350;
 	var height = 200;
 	var top = (screen.availHeight - height) / 2;
@@ -9,11 +9,9 @@ function Popup(nwurl){
 
     var features;
     features= 'height='+height+',width='+width+',top='+top+',left='+left;
-	window.open(nwurl,'_blank',features);
+	window.open('pages/addItemToCartResult.html','_blank',features);
 	
 }
-
-
 </script>
 
 <h2>Book View : {$book_info->book_title}</h2>
@@ -77,14 +75,13 @@ function Popup(nwurl){
 	<tr>
 	   <td>
 <!-- 찜버튼 -->
-<form action="./" method="post">
+<form action="./" method="post" onsubmit="return procFilter(this, wish_insert);">
 <input type="hidden" name="module_srl" value="{$module_srl}" />
 <!--@if($book_info->ting)-->
 <input type="hidden" name="ting" value=0 />
 <!--@else-->
 <input type="hidden" name="ting" value=1 />
 <!--@end-->
-<input type="hidden" name="ting" value=0 />
 <input type="hidden" name="regdate" value="{date("Ymd")}" />
 <input type="hidden" name="trade_srl" value="{$trade_srl}" />
 <input type="hidden" name="seller_nick" value="{$logged_info->nick_name}" />
@@ -95,11 +92,8 @@ function Popup(nwurl){
 <input type="hidden" name="book_price" value="{$book_info->book_price}" size="20" />
 <input type="hidden" name="hope_price" value="{$book_info->hope_price}" size="20" />
 <input type="hidden" name="genre" value="{$book_info->genre}" size="40" />
-<div class="btn">
-<a href="{getUrl('act','dispHbookContentNew')}" target="_blank" onClick="javascript:Popup(this.href);return false;">찜하기</a>
-</div>
-
-</form>				
+<span class="btn"><input type="submit" value="찜하기"/></span>
+</form>		
 		</td>
 		<td>
 <!--구매자와 거래상태 정보를 위한 폼양식-->
