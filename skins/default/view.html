@@ -1,5 +1,21 @@
 <!--#include("_header.html")-->
 
+<script type="text/javascript">
+function Popup(nwurl){
+	var width = 350;
+	var height = 200;
+	var top = (screen.availHeight - height) / 2;
+    var left = (screen.availWidth - width) / 2;
+
+    var features;
+    features= 'height='+height+',width='+width+',top='+top+',left='+left;
+	window.open(nwurl,'_blank',features);
+	
+}
+
+
+</script>
+
 <h2>Book View : {$book_info->book_title}</h2>
 
 <!-- 도서 정보 -->
@@ -61,13 +77,29 @@
 	<tr>
 	   <td>
 <!-- 찜버튼 -->
-<form action="./" method="post" onsubmit="return procFilter(this, order_insert);">
-	<input type="hidden" name="module_srl" value="{$module_srl}" />
-	<input type="hidden" name="ting" value="{$book_info->ting}" />
-	<input type="hidden" name="customer_nick" value="{$logged_info->nick_name}" />
-	<input type="hidden" name="trade_srl" value="{$book_info->trade_srl}" />
-	<span class="btn"><input type="submit" value="찜하기"/></span>
-</form>		
+<form action="./" method="post">
+<input type="hidden" name="module_srl" value="{$module_srl}" />
+<!--@if($book_info->ting)-->
+<input type="hidden" name="ting" value=0 />
+<!--@else-->
+<input type="hidden" name="ting" value=1 />
+<!--@end-->
+<input type="hidden" name="ting" value=0 />
+<input type="hidden" name="regdate" value="{date("Ymd")}" />
+<input type="hidden" name="trade_srl" value="{$trade_srl}" />
+<input type="hidden" name="seller_nick" value="{$logged_info->nick_name}" />
+<input type="hidden" name="isbn" value="{$book_info->isbn}" size="40" />
+<input type="hidden" name="book_title" value="{$book_info->book_title}" size="40" />
+<input type="hidden" name="book_author" value="{$book_info->book_author}" size="40" />
+<input type="hidden" name="book_publisher" value="{$book_info->book_publisher}" size="20" />
+<input type="hidden" name="book_price" value="{$book_info->book_price}" size="20" />
+<input type="hidden" name="hope_price" value="{$book_info->hope_price}" size="20" />
+<input type="hidden" name="genre" value="{$book_info->genre}" size="40" />
+<div class="btn">
+<a href="{getUrl('act','dispHbookContentNew')}" target="_blank" onClick="javascript:Popup(this.href);return false;">찜하기</a>
+</div>
+
+</form>				
 		</td>
 		<td>
 <!--구매자와 거래상태 정보를 위한 폼양식-->
