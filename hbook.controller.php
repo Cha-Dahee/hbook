@@ -108,7 +108,7 @@ class hbookController extends hbook {
 		
 			// request 값을 모두 받음
 			$obj = Context::getRequestVars();
-		
+			
 			// 현재 모듈번호 확인
 			$obj->module_srl = Context::get('module_srl');
 		

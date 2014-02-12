@@ -75,7 +75,7 @@ function Popup(){
 	<tr>
 	   <td>
 <!-- 찜버튼 -->
-<form action="./" method="post" onsubmit="return procFilter(this, wish_insert);">
+<form action="./" method="post" onsubmit="Popup();return procFilter(this, wish_insert);">
 <input type="hidden" name="module_srl" value="{$module_srl}" />
 <!--@if($book_info->ting)-->
 <input type="hidden" name="ting" value=0 />
@@ -93,7 +93,9 @@ function Popup(){
 <input type="hidden" name="hope_price" value="{$book_info->hope_price}" size="20" />
 <input type="hidden" name="genre" value="{$book_info->genre}" size="40" />
 <span class="btn"><input type="submit" value="찜하기"/></span>
-</form>		
+</form>
+
+
 		</td>
 		<td>
 <!--구매자와 거래상태 정보를 위한 폼양식-->

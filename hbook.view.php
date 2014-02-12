@@ -125,6 +125,7 @@ class hbookView extends hbook {
 			// 내용 작성시 검증을 위해 사용되는 XmlJSFilter  
             Context::addJsFilter($this->module_path.'tpl/filter', 'order_insert.xml');
             Context::addJsFilter($this->module_path.'tpl/filter', 'order_cancel.xml');
+            Context::addJsFilter($this->module_path.'tpl/filter', 'wish_insert.xml');
 
 			// 콜백 함수를 처리하는 javascript 
             Context::addJsFile($this->module_path.'tpl/js/hbook.js');
